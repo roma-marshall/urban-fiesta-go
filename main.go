@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println("go run main.go hello world")
+	fmt.Println("hello, welcome to cmd-calcApp")
 
 	var firstNumber float64
 	var secondNumber float64
@@ -31,7 +31,11 @@ func main() {
 		sum = firstNumber * secondNumber
 	} else if operand == "/" {
 		sum = firstNumber / secondNumber
+	} else {
+		fmt.Println("operand isn't correct: ", operand)
+		operand = os.DevNull
 	}
-
-	fmt.Println("Summary: ", firstNumber, operand, secondNumber, " = ", sum)
+	if operand != os.DevNull {
+		fmt.Println("Summary: ", firstNumber, operand, secondNumber, " = ", sum)
+	}
 }
